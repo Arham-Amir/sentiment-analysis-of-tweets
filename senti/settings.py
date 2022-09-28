@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-z^7n$*gc@exo8yhuu+=j43d8gfdob+z%u)t$oczyl#k3qmg)ar
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["sentiment-analysis-of-tweet.herokuapp.com"]
 
 
 # Application definition
