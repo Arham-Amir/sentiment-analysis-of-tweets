@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-z^7n$*gc@exo8yhuu+=j43d8gfdob+z%u)t$oczyl#k3qmg)ar
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["sentiment-analysis-of-tweet.herokuapp.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -130,5 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 django_heroku.settings(locals())
