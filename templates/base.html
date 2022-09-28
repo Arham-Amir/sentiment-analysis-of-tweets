@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: darkblue;
+            color: white;
+        }
+
+        nav ul {
+            margin-bottom: 0px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding: 0px 40px;
+        }
+
+        nav ul li {
+            list-style: none;
+            padding: 40px;
+            font-size: larger;
+        }
+        nav ul li a{
+            font-size: larger;
+            text-decoration: none;
+            color: beige;
+        }
+        .active{
+            font-weight: bolder;
+            color : yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href= {% url 'home' %}>Home</a></li>
+            <li><a class = '{% if page == 'page1' %} active {% endif %}' href= {% url 'profile' %}>Profile</a></li>
+            <li><a class = '{% if page == 'page2' %} active {% endif %}' href= {% url 'tweetSentiments' %}>Tweets Sentiments</a></li>
+            <li><a class = '{% if page == 'page3' %} active {% endif %}' href= {% url 'chart' %}>Chart</a></li>
+        </ul>
+    </nav>
+
+    {% block body %}{% endblock body %} 
+    
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @property --p {
+            syntax: '<number>';
+            inherits: true;
+            initial-value: 0;
+        }
+        
+        .pie {
+            --p: 20;
+            --b: 22px;
+            --c: darkred;
+            --w: 200px;
+
+            width: var(--w);
+            aspect-ratio: 1;
+            position: relative;
+            display: inline-grid;
+            margin: 5px;
+            place-content: center;
+            font-size: 25px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+
+        .pie:before,
+        .pie:after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .pie:before {
+            inset: 0;
+            background:
+                radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b) var(--b) no-repeat,
+                conic-gradient(var(--c) calc(var(--p)*1%), #0000 0);
+            -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+            mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+        }
+
+        .pie:after {
+            inset: calc(50% - var(--b)/2);
+            background: var(--c);
+            transform: rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+        }
+
+        .animate {
+            animation: p 1s .5s both;
+        }
+
+        .no-round:before {
+            background-size: 0 0, auto;
+        }
+
+        .no-round:after {
+            content: none;
+        }
+
+        @keyframes p {
+            from {
+                --p: 0
+            }
+        }
+
+        body {
+            background: #ddd;
+        }
+
+        .charts {
+            margin: 180px 140px 0px 140px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .charts-name {
+            margin: 30px 35px 0px 65px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+{% extends 'base.html' %}
+{% block body %}
+
+<body>
+    <div class="charts">
+        <div class="pie animate" style="--p:{{politics}};--c:MAROON"> {{politics}}%</div>
+        <div class="pie animate" style="--p:{{sports}};--c:PURPLE"> {{sports}}%</div>
+        <div class="pie animate" style="--p:{{technology}};--c:ORANGE"> {{technology}}%</div>
+    </div>
+    <div class="charts-name">
+        <div>
+            <h3>Politics</h3>
+        </div>
+        <div>
+            <h3>Sports</h3>
+        </div>
+        <div>
+            <h3>Technology</h3>
+        </div>
+    </div>
+</body>
+{% endblock body %}
+
+</html>

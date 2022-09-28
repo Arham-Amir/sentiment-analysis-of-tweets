@@ -1,0 +1,1 @@
+web gunicorn senti.wsgi:application --log-file -
