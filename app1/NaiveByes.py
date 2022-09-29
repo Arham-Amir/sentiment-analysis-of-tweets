@@ -103,7 +103,7 @@ def get_tweet_test_data(username, quantity):
             obj['location'] = tweet.user.location
             obj['linkUrl'] = 'https://twitter.com/{}'.format(username)
         actualTweet = temp = ' '.join(word for word in splitAll(
-            tweet.rawContent) if not word.startswith('https:'))
+            tweet.content) if not word.startswith('https:'))
         temp = (translator.translate(temp, dest='en')).text
         tempTweet.update({'content':  copy.deepcopy(actualTweet)})
         tempTweet.update({'date': tweet.date.day})
