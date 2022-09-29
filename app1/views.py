@@ -1,4 +1,3 @@
-from tkinter.messagebox import RETRY
 from django.shortcuts import render
 from app1.NaiveByes import *
 
