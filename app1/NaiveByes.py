@@ -51,7 +51,8 @@ def extract_words(tweet_words):
 
 
 def get_tweet_training_data():
-    f = open("\training.txt", 'r', encoding='utf-8')
+    here = path.abspath(path.dirname(__file__))
+    f = open(path.join(here, 'training.txt'), 'r', encoding='utf-8')
     training_data = []
     for l in f.readlines():
         l = l.strip()
