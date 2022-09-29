@@ -51,8 +51,7 @@ def extract_words(tweet_words):
 
 
 def get_tweet_training_data():
-    f = open("C:\\Users\\arham\\OneDrive\\Desktop\\training.txt",
-             'r', encoding='utf-8')
+    f = open("\training.txt", 'r', encoding='utf-8')
     training_data = []
     for l in f.readlines():
         l = l.strip()
