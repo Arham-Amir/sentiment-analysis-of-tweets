@@ -4,6 +4,7 @@ import snscrape.modules.twitter as sntwitter
 import string, copy
 import nltk
 from numerize import numerize
+from os import path
 
 nltk.download('stopwords')
 translator = Translator()
