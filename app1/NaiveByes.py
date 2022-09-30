@@ -204,6 +204,7 @@ def label_data(quantity, obj, test_data, sports_word_prob, politics_word_prob, t
     obj['politics'] = round(politics/quantity *100)
     obj['technology'] = round(technology/quantity *100)
     obj['user']= True
+    obj['found']= True
     return obj
 
 # Print the labelled test data
@@ -223,7 +224,8 @@ def callNaiveBayes(username, quantity):
     # Get the training and test data
     temp = test_data = get_tweet_test_data(username, quantity)
     if(temp == 0):
-        return {'user':False}
+        return {'user':False,
+            'found':False}
 
     test_data, obj = temp
     training_data = get_tweet_training_data()
