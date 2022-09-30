@@ -3,7 +3,8 @@ from app1.NaiveByes import *
 import time
 
 obj = {
-    'user' : False
+    'user' : False,
+    'found' : True
 }
 def profile(request):
     username = ''
@@ -14,8 +15,7 @@ def profile(request):
         print('\n\n\n User Found With The USERNAME: ',username , '\n\n\n')
         global obj #            ------------------------------ Global 
         obj = callNaiveBayes(username, quantity)
-        while not obj['user']:
-            print("or bhii\n\n")
+        while not obj['user'] and obj['found']:
             time.sleep(1)
         if obj['user']== False:
             errMsg = "No User Found With The USERNAME: {}".format(username)
