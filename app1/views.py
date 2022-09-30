@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from app1.NaiveByes import *
+import time
 
 obj = {
     'user' : False
@@ -13,6 +14,9 @@ def profile(request):
         print('\n\n\n User Found With The USERNAME: ',username , '\n\n\n')
         global obj #            ------------------------------ Global 
         obj = callNaiveBayes(username, quantity)
+        while not obj['user']:
+            print("or bhii\n\n")
+            time.sleep(1)
         if obj['user']== False:
             errMsg = "No User Found With The USERNAME: {}".format(username)
             return render(request, 'errPage.html', {'errMsg' : errMsg})
