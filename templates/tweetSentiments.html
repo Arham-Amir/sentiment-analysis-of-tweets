@@ -202,8 +202,10 @@
                 </div>
             </div>
         </div>
-        <div class='sentiments {% if sentiments == "Sports" %} sportsWidth {% elif sentiments == "Technology" %}
+        <div style = "width: 105px;max-width: 105px;">
+            <div class='sentiments {% if sentiments == "Sports" %} sportsWidth {% elif sentiments == "Technology" %}
             techWidth {% endif %}'>{{sentiments}}</div>
+        </div>
     </div>
     {% endfor %}
 
